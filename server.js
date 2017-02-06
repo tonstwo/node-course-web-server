@@ -35,10 +35,11 @@ hbs.registerHelper('getCurrentYear', () => {
 hbs.registerHelper('screamIt', (text)=> {
     return text.toUpperCase();
 });
+
 app.get('/', (req, res)=>{
     // res.send('<h1>hello express!</h1>');
     res.render('home.hbs', {
-        pageTitle: 'Homepage',
+        pageTitle: 'Home',
         welcomeMessage: 'Welcome to this shitty sample site.'
     })
     // res.send({
@@ -52,9 +53,16 @@ app.get('/', (req, res)=>{
 
 app.get('/about', (req, res) => {
     res.render('about.hbs', {
-        pageTitle: 'Some Webiste'
+        pageTitle: 'About'
     });
 });
+
+app.get('/projects', (req, res) => {
+    res.render('projects.hbs', {
+        pageTitle: 'Projects',
+        projectsMessage: 'This is where my portfolio lies'
+    });
+})
 
 app.get('/bad', (req, res)=> {
     res.send({
